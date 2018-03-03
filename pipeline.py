@@ -179,7 +179,7 @@ class WgetArgs(object):
             "--page-requisites",
             "--timeout", "30",
             "--tries", "inf",
-            "--domains", "steampowered.com",
+            "--domains", "pokecommunity.com",
             "--span-hosts",
             "--waitretry", "30",
             "--warc-file", ItemInterpolation("%(item_dir)s/%(warc_file_base)s"),
@@ -214,18 +214,18 @@ class WgetArgs(object):
         if item_type == 'threads':
             start, stop = item_value.split('-')
             for i in range(int(start), int(stop)+1):
-                wget_args.extend(['--warc-header', 'steam-users-forum-thread: {i}'.format(i=i)])
+                wget_args.extend(['--warc-header', 'pokecommunity-forum-thread: {i}'.format(i=i)])
                 wget_args.append('http://pokecommunity.com/showthread.php?t={i}'.format(i=i))
         elif item_type == 'forums':
             start, stop = item_value.split('-')
             for i in range(int(start), int(stop)+1):
-                wget_args.extend(['--warc-header', 'steam-users-forum-forum: {i}'.format(i=i)])
+                wget_args.extend(['--warc-header', 'pokecommunity-forum: {i}'.format(i=i)])
                 wget_args.append('http://pokecommunity.com/forumdisplay.php?f={i}&daysprune=-1'.format(i=i))
                 wget_args.append('http://pokecommunity.com/forumdisplay.php?f={i}'.format(i=i))
         elif item_type == 'members':
             start, stop = item_value.split('-')
             for i in range(int(start), int(stop)+1):
-                wget_args.extend(['--warc-header', 'steam-users-forum-member: {i}'.format(i=i)])
+                wget_args.extend(['--warc-header', 'pokecommunity-forum-member: {i}'.format(i=i)])
                 wget_args.append('http://pokecommunity.com/forums/member.php?u={i}'.format(i=i))
         else:
             raise Exception('Unknown item')
@@ -245,13 +245,13 @@ class WgetArgs(object):
 # This will be shown in the warrior management panel. The logo should not
 # be too big. The deadline is optional.
 project = Project(
-    title = "Steam Users' Forum",
+    title = "The PokéCommunity Forums",
     project_html = """
-    <img class="project-logo" alt="Steam Logo" src="http://archiveteam.org/images/thumb/4/48/Steam_Icon_2014.png/100px-Steam_Icon_2014.png" />
-    <h2>Steam Users' Forum <span class="links"><a href="http://forums.steampowered.com/forums">Website</a> &middot; <a href="http://tracker.archiveteam.org/spuf/">Leaderboard</a></span></h2>
-    <p>Getting killed June 5th.</p>
+    <img class="project-logo" alt="Steam Logo" src="http://archiveteam.org/images/thumb/0/0e/Pokecommunityicon.png/100px-Pokecommunityicon.png" />
+    <h2>Steam Users' Forum <span class="links"><a href="http://pokecommunity.com">Website</a> &middot; <a href="http://tracker.archiveteam.org/pokecommunity/">Leaderboard</a></span></h2>
+    <p>Sitting on death's door due to a scandal involving the owner.</p>
     """,
-    utc_deadline = datetime.datetime(2017, 6, 4, 23, 59, 0)
+    utc_deadline = datetime.datetime()
 )
 
 pipeline = Pipeline(
