@@ -167,7 +167,7 @@ class WgetArgs(object):
             "-nv",
             "--load-cookies", "cookies.txt",
             #"--no-cookies",
-            "--lua-script", "spuf.lua",
+            "--lua-script", "pokecommunity.lua",
             "-o", ItemInterpolation("%(item_dir)s/wget.log"),
             "--no-check-certificate",
             "--output-document", ItemInterpolation("%(item_dir)s/wget.tmp"),
@@ -251,10 +251,10 @@ class WgetArgs(object):
 # This will be shown in the warrior management panel. The logo should not
 # be too big. The deadline is optional.
 project = Project(
-    title = "The PokéCommunity Forums",
+    title = "The PokeCommunity Forums",
     project_html = """
-    <img class="project-logo" alt="Steam Logo" src="http://www.archiveteam.org/index.php?title=File:Pokecommunityicon.png" />
-    <h2>Steam Users' Forum <span class="links"><a href="http://pokecommunity.com">Website</a> &middot; <a href="http://tracker.archiveteam.org/pokecommunity/">Leaderboard</a></span></h2>
+    <img class="project-logo" alt="Pokecommunity Logo" src="http://www.archiveteam.org/index.php?title=File:Pokecommunityicon.png" />
+    <h2>Pokecommunity Forum <span class="links"><a href="http://pokecommunity.com">Website</a> &middot; <a href="http://tracker.archiveteam.org/pokecommunity/">Leaderboard</a></span></h2>
     <p>Sitting on death's door due to a scandal involving the owner.</p>
     """,
     utc_deadline = datetime.datetime()
