@@ -58,7 +58,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20180303"
+VERSION = "20180303.01"
 USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'pokecommunity'
 TRACKER_HOST = 'tracker.archiveteam.org'
@@ -227,6 +227,12 @@ class WgetArgs(object):
             for i in range(int(start), int(stop)+1):
                 wget_args.extend(['--warc-header', 'pokecommunity-forum-member: {i}'.format(i=i)])
                 wget_args.append('http://pokecommunity.com/member.php?u={i}'.format(i=i))
+        elif item_type == 'attachments':
+            start, stop = item_value.split('-')
+            for i in range(int(start), int(stop)+1):
+                wget_args.extend(['--warc-header', 'pokecommunity-forum-attachment: {i}'.format(i=i)])
+                wget_args.append('http://pokecommunity.com/attachment.php?attachmentid={i}'.format(i=i))
+
         else:
             raise Exception('Unknown item')
 
