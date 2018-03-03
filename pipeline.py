@@ -184,7 +184,7 @@ class WgetArgs(object):
             "--waitretry", "30",
             "--warc-file", ItemInterpolation("%(item_dir)s/%(warc_file_base)s"),
             "--warc-header", "operator: Archive Team",
-            "--warc-header", "steam-users-forum-dld-script-version: " + VERSION,
+            "--warc-header", "pokecommunity-dld-script-version: " + VERSION,
             "--warc-header", ItemInterpolation("pokecommunity-item: %(item_name)s"),
         ]
 
@@ -226,7 +226,7 @@ class WgetArgs(object):
             start, stop = item_value.split('-')
             for i in range(int(start), int(stop)+1):
                 wget_args.extend(['--warc-header', 'pokecommunity-forum-member: {i}'.format(i=i)])
-                wget_args.append('http://pokecommunity.com/forums/member.php?u={i}'.format(i=i))
+                wget_args.append('http://pokecommunity.com/member.php?u={i}'.format(i=i))
         else:
             raise Exception('Unknown item')
 
@@ -247,7 +247,7 @@ class WgetArgs(object):
 project = Project(
     title = "The PokéCommunity Forums",
     project_html = """
-    <img class="project-logo" alt="Steam Logo" src="http://archiveteam.org/images/thumb/0/0e/Pokecommunityicon.png/100px-Pokecommunityicon.png" />
+    <img class="project-logo" alt="Steam Logo" src="http://www.archiveteam.org/index.php?title=File:Pokecommunityicon.png" />
     <h2>Steam Users' Forum <span class="links"><a href="http://pokecommunity.com">Website</a> &middot; <a href="http://tracker.archiveteam.org/pokecommunity/">Leaderboard</a></span></h2>
     <p>Sitting on death's door due to a scandal involving the owner.</p>
     """,
