@@ -58,7 +58,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20170615.01"
+VERSION = "20180303"
 USER_AGENT = 'ArchiveTeam'
 TRACKER_ID = 'pokecommunity'
 TRACKER_HOST = 'tracker.archiveteam.org'
@@ -146,7 +146,7 @@ def get_hash(filename):
 
 CWD = os.getcwd()
 PIPELINE_SHA1 = get_hash(os.path.join(CWD, 'pipeline.py'))
-LUA_SHA1 = get_hash(os.path.join(CWD, 'spuf.lua'))
+LUA_SHA1 = get_hash(os.path.join(CWD, 'pokecommunity.lua'))
 
 def stats_id_function(item):
     # NEW for 2014! Some accountability hashes and stats.
